@@ -9,13 +9,15 @@ import (
 	"time"
 )
 
+type ContributionsMap map[int]*[366]int
+
 type GitCollector struct {
-	ContributionsMap map[int]*[366]int
+	ContributionsMap ContributionsMap 
 	emails           []string
 }
 
 func NewGitCollector(emails []string) GitCollector {
-	return GitCollector{ContributionsMap: make(map[int]*[366]int), emails: emails}
+	return GitCollector{ContributionsMap: make(ContributionsMap), emails: emails}
 }
 
 func (collector *GitCollector) CollectGitContributions(cwd string) error {

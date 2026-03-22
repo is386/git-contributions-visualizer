@@ -7,7 +7,9 @@ import (
 	"path/filepath"
 	"strings"
 
+	tea "charm.land/bubbletea/v2"
 	"github.com/is386/git-contributions-visualizer/internal/git"
+	"github.com/is386/git-contributions-visualizer/internal/tui"
 )
 
 func main() {
@@ -55,6 +57,12 @@ func main() {
 
 	if len(collector.ContributionsMap) == 0 {
 		fmt.Fprintf(os.Stderr, "no contributions found for %v in %s\n", emails, dir)
+		os.Exit(1)
+	}
+
+	m := tui.NewModel(collector.ContributionsMap)
+	if _, err := tea.NewProgram(m).Run(); err != nil {
+		fmt.Println("Error running program:", err)
 		os.Exit(1)
 	}
 }

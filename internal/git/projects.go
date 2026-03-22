@@ -1,6 +1,7 @@
 package git
 
 import (
+	"fmt"
 	"os"
 	"path/filepath"
 )
@@ -23,6 +24,10 @@ func GetProjectsInDir(dir string) ([]string, error) {
 		}
 
 		projects = append(projects, entry.Name())
+	}
+
+	if len(projects) == 0 {
+		return nil, fmt.Errorf("no git projects found in %s", dir)
 	}
 
 	return projects, nil

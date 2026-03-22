@@ -37,7 +37,7 @@ func main() {
 	} else {
 		emails = strings.Split((*emailsFlag), ",")
 	}
-	
+
 	projects, err := git.GetProjectsInDir(dir)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
@@ -51,5 +51,10 @@ func main() {
 			fmt.Fprintln(os.Stderr, err)
 			os.Exit(1)
 		}
+	}
+
+	if len(collector.ContributionsMap) == 0 {
+		fmt.Fprintf(os.Stderr, "no contributions found for %v in %s\n", emails, dir)
+		os.Exit(1)
 	}
 }

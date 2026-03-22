@@ -1,4 +1,4 @@
-module github.com/is386/git-contributions-visualizer
+module github.com/is386/gcv
 
 go 1.26.1
 

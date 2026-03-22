@@ -8,8 +8,8 @@ import (
 	"strings"
 
 	tea "charm.land/bubbletea/v2"
-	"github.com/is386/git-contributions-visualizer/internal/git"
-	"github.com/is386/git-contributions-visualizer/internal/tui"
+	"github.com/is386/gcv/internal/git"
+	"github.com/is386/gcv/internal/tui"
 )
 
 func main() {

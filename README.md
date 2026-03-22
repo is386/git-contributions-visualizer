@@ -15,7 +15,7 @@ A terminal-based tool that aggregates Git contributions across multiple reposito
 ## Usage
 
 ```
-git-contributions-visualizer [options] [project-dir]
+gcv [options] [project-dir]
 ```
 
 ### Arguments
@@ -34,10 +34,10 @@ git-contributions-visualizer [options] [project-dir]
 
 ```bash
 # Visualize contributions from all repos in ~/projects using your git config email
-git-contributions-visualizer ~/projects
+gcv ~/projects
 
 # Visualize contributions for specific email addresses
-git-contributions-visualizer -emails "work@example.com,personal@example.com" ~/projects
+gcv -emails "work@example.com,personal@example.com" ~/projects
 ```
 
 ### Navigation
@@ -51,13 +51,13 @@ git-contributions-visualizer -emails "work@example.com,personal@example.com" ~/p
 ## Installation
 
 ```bash
-go install github.com/is386/git-contributions-visualizer@latest
+go install github.com/is386/gcv@latest
 ```
 
 Or build from source:
 
 ```bash
-git clone https://github.com/is386/git-contributions-visualizer.git
-cd git-contributions-visualizer
-go build -o git-contributions-visualizer .
+git clone https://github.com/is386/gcv.git
+cd gcv
+go build -o gcv .
 ```

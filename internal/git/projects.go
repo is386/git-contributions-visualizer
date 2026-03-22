@@ -17,6 +17,11 @@ func GetProjectsInDir(dir string) ([]string, error) {
 		if !entry.IsDir() {
 			continue
 		}
+		
+		if entry.Name() == ".git" {
+			projects = append(projects, ".") 
+			continue
+		}
 
 		_, err := os.Stat(filepath.Join(dir, entry.Name(), ".git"))
 		if err != nil {
